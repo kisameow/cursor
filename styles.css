@@ -1,0 +1,177 @@
+/* 基础设计令牌 */
+:root {
+  --bg: #ffffff;
+  --fg: #111418;
+  --muted: #5b6875;
+  --card: #f6f8fa;
+  --border: #e6eaf0;
+  --brand: #3b82f6;
+  --brand-fg: #ffffff;
+  --shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0f14;
+    --fg: #e6ebf2;
+    --muted: #9aa6b2;
+    --card: #0f141b;
+    --border: #1e2630;
+    --brand: #60a5fa;
+    --brand-fg: #0b0f14;
+    --shadow: 0 8px 24px rgba(0,0,0,0.5);
+  }
+}
+
+/* 主题覆盖（脚本会设置 data-theme） */
+[data-theme="light"] {
+  --bg: #ffffff;
+  --fg: #111418;
+  --muted: #5b6875;
+  --card: #f6f8fa;
+  --border: #e6eaf0;
+  --brand: #3b82f6;
+  --brand-fg: #ffffff;
+}
+
+[data-theme="dark"] {
+  --bg: #0b0f14;
+  --fg: #e6ebf2;
+  --muted: #9aa6b2;
+  --card: #0f141b;
+  --border: #1e2630;
+  --brand: #60a5fa;
+  --brand-fg: #0b0f14;
+}
+
+/* 全局样式 */
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, PingFang SC, Noto Sans CJK SC, "Noto Sans CJK", "Microsoft YaHei", sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  backdrop-filter: saturate(180%) blur(8px);
+  background: color-mix(in oklab, var(--bg) 92%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--fg);
+  letter-spacing: 0.2px;
+}
+
+.nav { display: flex; align-items: center; gap: 12px; }
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+.nav a:hover { color: var(--fg); background: var(--card); }
+
+#theme-toggle {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hero {
+  padding: 64px 20px 36px;
+}
+
+.hero-content {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.avatar {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 16px;
+  display: grid; place-items: center;
+  font-size: 44px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+h1 { font-size: clamp(28px, 4vw, 42px); margin: 8px 0 8px; }
+.highlight { color: var(--brand); }
+.subtitle { color: var(--muted); margin: 0 0 16px; }
+
+.hero-actions { display: flex; gap: 12px; justify-content: center; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 40px; padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  text-decoration: none;
+}
+.btn.small { height: 34px; padding: 0 12px; font-size: 14px; }
+.btn.primary { background: var(--brand); color: var(--brand-fg); border-color: transparent; }
+.btn[aria-disabled="true"] { opacity: 0.55; pointer-events: none; }
+.btn:hover { filter: brightness(1.03); }
+
+.section { padding: 28px 20px; }
+.section h2 { max-width: 920px; margin: 0 auto 12px; font-size: 22px; }
+.section p { max-width: 920px; margin: 0 auto; color: var(--muted); }
+
+.chips { max-width: 920px; margin: 14px auto 0; display: flex; flex-wrap: wrap; gap: 10px; padding: 0; list-style: none; }
+.chips li { padding: 6px 10px; border-radius: 999px; background: var(--card); border: 1px solid var(--border); }
+
+.cards { max-width: 920px; margin: 12px auto 0; display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+.card {
+  grid-column: span 12;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.card h3 { margin: 4px 0 8px; font-size: 18px; }
+.card p { margin: 0 0 10px; color: var(--muted); }
+.card-actions { display: flex; gap: 10px; }
+
+@media (min-width: 720px) {
+  .card { grid-column: span 6; }
+}
+
+.contact-list { max-width: 920px; margin: 12px auto 0; padding-left: 18px; }
+
+.site-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 20px; border-top: 1px solid var(--border); color: var(--muted);
+}
+.back-to-top { text-decoration: none; color: var(--muted); }
+.back-to-top:hover { color: var(--fg); }
+
+

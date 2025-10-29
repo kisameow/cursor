@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>曾尾号 · 个人主页</title>
+    <meta name="description" content="曾尾号的个人主页：关于我、项目与联系方式。">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preload" as="style" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="#top" class="brand">曾尾浩</a>
+      <nav class="nav">
+        <a href="#about">关于我</a>
+        <a href="#projects">项目</a>
+        <a href="#contact">联系</a>
+        <button id="theme-toggle" aria-label="切换主题" title="切换主题">🌓</button>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="开场">
+        <div class="hero-content">
+          <div class="avatar" aria-hidden="true">🧑🏻‍💻</div>
+          <h1>你好，我是 <span class="highlight">曾尾号</span></h1>
+          <p class="subtitle">专注于打造简洁优雅的 Web 体验。</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">查看项目</a>
+            <a class="btn" href="#contact">联系我</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <h2>关于我</h2>
+        <p>
+          我是一名热爱产品与工程的开发者，喜欢把复杂问题变简单，
+          注重可维护性与用户体验。平时关注前端工程化、性能优化与设计系统。
+        </p>
+        <ul class="chips" aria-label="关键词">
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+          <li>React</li>
+          <li>Node.js</li>
+          <li>性能优化</li>
+          <li>设计系统</li>
+        </ul>
+      </section>
+
+      <section id="projects" class="section">
+        <h2>项目</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>个人站点模板</h3>
+            <p>一套轻量、响应式的个人主页模板，支持深浅色模式与无障碍特性。</p>
+            <div class="card-actions">
+              <a class="btn small" href="#" aria-disabled="true">预览</a>
+              <a class="btn small" href="#" aria-disabled="true">源码</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>组件库实验</h3>
+            <p>探索一致性的 UI 组件设计与 API 规范，提升开发效率与可维护性。</p>
+            <div class="card-actions">
+              <a class="btn small" href="#" aria-disabled="true">文档</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <h2>联系</h2>
+        <p>欢迎通过以下方式联系我：</p>
+        <ul class="contact-list">
+          <li>邮箱：<a href="mailto:hello@example.com">hello@example.com</a></li>
+          <li>微信：<span aria-label="微信号">zwh</span></li>
+          <li>GitHub：<a href="https://github.com/" target="_blank" rel="noreferrer noopener">GitHub Profile</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> 曾尾号</span>
+      <a href="#top" class="back-to-top" aria-label="回到顶部">↑</a>
+    </footer>
+
+    <script src="/script.js" defer></script>
+  </body>
+  </html>
+
+
